@@ -128,3 +128,10 @@ const dataCompleta = dataHtml.innerHTML =
  `${dia}, ${numberDay} de ${mes} de ${numberYear} <br></br> Horário: ${hora}:${minuto}`
 
 // E essa minha solução final, estou progredindo...
+
+// Outra forma de fazer também é como tá escrito na documentação do MDN com recursos nativos do Objeto Date()
+
+const dataH1 = document.querySelector("#Data")
+const data = new Date() 
+
+h1.innerHTML = data.toLocaleDateString("pt-br"{datestyle:"full", timestyle: "short"}) 
