@@ -39,11 +39,13 @@ function retornaHora(data){
 retornaHora()
 
 try{
-    const hora = retornaHora()// Vou lança algum valor aqui para causa o erro 
+    const hora = retornaHora(122)// Vou lança algum valor aqui para causa o erro 
     console.log(hora)
 
 }catch(error){
-   //Tratamento de erro vou faze-lo ainda....
+    
+   console.log(error)
+   
 }finally{
 
    
