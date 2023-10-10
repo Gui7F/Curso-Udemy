@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(60, 95, 130);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container{
+    background-color: rgb(196, 196, 196);
+    max-width: 600px;
+    text-align: center;
+    border-radius:13px;
+    margin: auto;
+    padding: 25px;
+}
+h1{
+    text-align: left;
+    padding: 15px;
+    font-size: 2em;
+}
+
+.lista-tarefa{
+    text-align: left;
+   
+    color: white;
+
+}
+
+.li{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid 1px black;
+    background-color: gray;
+    border-radius: 5px;
+}
+.remover{
+   background-color: rgb(255, 120, 120);
+   color: white;
+   border-radius: 5px;
+}
+
+.remover:hover{
+    background-color: rgb(255, 56, 56);
+}
+

@@ -1,0 +1,93 @@
+Esse exercicio começo com a seleção dos objetos atraves do querySelector 
+Depois criamos uma fuction criLi para cria um elemento li 
+Depois criamos uma fuction criaTarefa com parametro tarefa que recebe nele o valor interno
+do input esse parametro e passado para os li.innerHTML com valor que esta sendo criado internamente
+o button adicionamos um eventeListenner para o click eventeListenner para assim que clicar 
+pega o valor de input e passar para fuction criaTarefa(). E na fuction criaTarefa() adicionamos
+lista-tarefa.appendChild() para adicionar a tarefa na nossa ul = lista-tarefa
+
+
+
+Agora adicionamos um outro eventeListenner no input, evento de 'keypress' que é quando 
+apertamos alguma tecla tambem temos os events de 'keydown' e 'keyup' que são de segurar
+e outro de precionar e soltar a tecla respectivamente. Continuando passamos no evento a 
+fuction criaTarefa com valor do input 
+
+Agora criamos um fuction para limpar o input assim que ele for criada falicita para add
+mais tarefas com facilidade
+
+function limpaInput(){
+    inputTarefa.value = ''
+    inputTarefa.focus()
+}
+
+e chamamos ela na fuction criaTarefa, inputTarefa.focus() siginifica que estamos chamando 
+o evento html para ser criado pelo js e voltar o focus para inicio do input. 
+
+
+function criaBotaoApagar(li){
+    const botao = document.createElement('button')
+    botao.innerText = 'Remover'
+    li.innerText += ' '
+    botao.setAttribute('class', 'apagar',)
+    botao.setAttribute('title', 'Remover esta tarefa',)
+
+    li.appendChild(botao)
+}
+
+Agora criamos esse botao assim que uma tarefa é criada, e aprendemos a função setAttribute() que serve 
+para adicionar qualque atributo de qualque elemento o primeiro parametro é o atributo e o segundo é o valor
+deste atributo
+
+document.addEventListener('click', function (e){
+    const element = e.target
+    if(element.classList.contains('remover')){
+      element.parentElement.remove()
+    }
+})
+
+agora aqui capturamos o evento de click no botão de apagar atraves do documento direto e aprendemos agora 
+a função de parentElement(), ou seja podemos selecionar o pai do elemento que estamos criando que no caso é 
+uma 'li' e remove() apenas remove ela na execução do click
+
+function salvaTarefas(){
+   const liTarefas = listaTarefa.querySelectorAll('li')
+   const listadeTarefas = [];
+
+   for(let tarefa of liTarefas){
+     let tarefaTexto = tarefa.innerText;
+     tarefaTexto = tarefaTexto.replace('Remover', '').trim();
+     listadeTarefas.push(tarefaTexto)
+
+     console.log(listadeTarefas)
+   }
+
+   const tarefasJSON = JSON.stringify(listadeTarefas)
+   localStorage.setItem('tarefas', tarefasJSON)
+}
+
+Agora nesta fuction criamos um array vazio e selecinamos todas a li, depois iteramos sobre as li pegando todas
+depois dentro do laço pegamos o texto dentro das li e passamos para variavel tarefaTexto para ai entao fazer o
+replace do texto do botao 'Remover' e para tirar o espaço sobrando usamos trim(), depois disso puchamos os texto 
+para dentro do array listadeTarefas 
+
+E logo em baixo convertemos as tarefas para um arquivo JSON, para poder salvar essas tarefas no storege do browser
+convertemos em uma stringify, depois pegamos a variavel JSON e setamos cada item que passa por ela no localStorege
+do navegador, com nome de 'tarefas'
+
+function recuperarJSON (){
+    const tarefas = localStorage.getItem('tarefas')
+    const listaDeTarefas = JSON.parse(tarefas)
+    for(let index of listaDeTarefas){
+        criaTarefa(index)
+    }
+}
+
+Depois aqui criamos uma outra fuction que recuperarJSON, criamos um variavel que acessa o localStorege e pega 
+os valores que estao dentro da entidade 'tarefas' com metodo .getItem(). depois em outra variavel pegamos com metodo
+JSON.parse() convertemos as tarefas de volta para string, assim nos iteramos novamente sobre essas tarefas 
+e passamos a iteração na nossa function de criaTarefa, assim sempre ficam salvas as tarefas adiconadas.
+
+
+
+
