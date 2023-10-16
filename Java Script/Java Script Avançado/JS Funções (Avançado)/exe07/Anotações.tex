@@ -1,0 +1,85 @@
+Neste exercicio vamos criar uma calculadora 
+
+1 Anotação: Sobre 'this'
+
+Sempre que eu quiser referenciar alguma chave de um objeto dentro do proprio objeto 
+tenho que usar a palavra this.chave porque assim a engine entende que estou falando
+do elemento onde estou referenciando a chave 
+
+
+clearDisplay(){
+    this.display.value = '';
+ },
+
+ Aqui estou criando o botão de limpar o input atraves do evento que de click abaixo
+
+ 
+ if(element.classList.contains('button-clear')){
+    this.clearDisplay()
+};
+
+ou seja estou pegando o botão atraves da classList e estou mandando o metedo que limpar
+o valor do input
+
+
+Ja aqui estou criando metodo deleteOne que recebe o display e o valor interno dele 
+e passo ele no metedo slice que siginifica que estou pegando a string dentro do input
+passando o -1, ou seja a cada click um caracter é apagado
+
+deleteOne(){
+    this.display.value = this.display.value.slice(0, -1) 
+},
+
+E aqui estou selecionando o button delete para que ele escute o click 
+
+if(element.classList.contains('button-del')){
+    this.deleteOne()
+}
+
+
+Aqui estou criando um metedo atraves da função eval(). Que é uma função que executa qualquer
+string inserida nela como codigo java script, essa função é perigosa pois em projetos reais 
+deve ser usada com sabedoria e com os devidos condicionais para que um script malicioso nao seja 
+executado atraves do seu codigo
+
+Porem aqui é apenas um exercicio, estou aprendendo agora tambem a linguagem, então no 
+metodo eu pego valor dentro do input passo por eval atraves deu um try catch para garantir 
+que a conta seja valida, simples assim, porem nao coloco mais restrições no input pois ainda nao 
+sei fazer-lo por exemplo deixa que so digite numeros nele
+
+realizaConta(){
+    let conta = this.display.value;
+
+    try{
+       conta = eval(conta)
+
+       if(!conta){
+           alert('Conta Inválida')
+           return;
+       }
+         this.display.value = String(conta)
+
+    }catch(e){
+       alert('Conta Inválida')
+       return
+    }
+
+E Aqui é event do button-eq o botão de igual da calculadora
+
+
+if (element.classList.contains('button-eq')) {
+    this.realizaConta()
+}
+
+Tambem coloquei a tecla enter para realizaConta(), ou seja quando eu precionar tecla 
+o metodo realizaConta vai ser acionado.
+
+
+precionaEnter(){
+    this.display.addEventListener('keyup', (e) =>{
+     if(e.keyCode === 13){
+         this.realizaConta()
+     }
+    })
+
+Esse é o metodo utilizando o addEventListener e a keyCode do tecla Enter
