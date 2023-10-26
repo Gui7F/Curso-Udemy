@@ -12,7 +12,7 @@ function Calculadora() {
             const element = e.target;
 
             if (element.classList.contains('button'))
-                this.addvalorDisplay(element.innerText)
+                this.addvalorDisplay(element)
 
             if (element.classList.contains('button-clear')) {
                 this.clearDisplay()
@@ -70,7 +70,8 @@ function Calculadora() {
 
 
     this.addvalorDisplay = element => {
-        this.display.value += element
+        this.display.value += element.innerText
+        this.display.focus();
     }
 
 
