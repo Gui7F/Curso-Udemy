@@ -10,6 +10,15 @@ class ValidaCPF {
         })
         
     }
+    
+     validação(){
+        if(!this.cpfLimpo) return false
+        if(typeof this.cpfLimpo !== 'string') return false
+        if (this.cpfLimpo.length !== 11) return false
+        if(this.éSequência()) return false
+         return this.geraNovoCPF()
+        
+    }
 
     éSequência(){
         return this.cpfLimpo.charAt(0).repeat(11) === this.cpfLimpo
@@ -21,7 +30,7 @@ class ValidaCPF {
          const digito1 = ValidaCPF.calculaCPF(cpfParcial)
          const digito2 = ValidaCPF.calculaCPF(cpfParcial + digito1)
          this.novoCPF = cpfParcial + digito1 + digito2
-         console.log(digito1)
+         
     }
 
     static calculaCPF(cpfParcial){
@@ -43,16 +52,7 @@ class ValidaCPF {
          
     }
 
-     validação(){
-        if(!this.cpfLimpo) return false
-        if(typeof this.cpfLimpo !== 'string') return false
-        if (this.cpfLimpo.length !== 11) return false
-        if(this.éSequência()) return false
-        this.geraNovoCPF()
-        console.log(this.novoCPF)
-        return 'Cheguei aqui'
-        
-    }
+
     
 
 
