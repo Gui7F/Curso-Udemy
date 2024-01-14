@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+}
+
+section{
+    max-width: 50%;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table{
+    width: 100%;
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+
+td{
+    border: solid 1px black;
+}
+
+tr:nth-child(even){
+    background-color: rgb(179, 179, 179);
+}
