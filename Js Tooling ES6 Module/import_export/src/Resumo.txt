@@ -1,0 +1,50 @@
+   Os navegadores antigos precisam do webpack para roda codigos js porque a ECMA6 trouxe novos recursos que não foram atualizados para
+os navegadores antigos, isso siginifica que o webpack vai pegar nosso codigo em JS e 'transpilar' para uma versão que faz mesma coisa
+com recursos antigos da linguagem 
+
+   Utilizamos o npm o gerenciador de pacotes do node.js para instalar tanto o webpack quando o babel que são as ferramentas para fazer 
+a transpilação do codigo novo para o antigo compativel com todos os navegadores, e tambem estamos trabalhando com modules que nada mais é
+que criar um codigo em JS que pode ser importado para outro codigo JS
+   
+   Explicando melhor vamos criar uma função, classe, objetos, arrays , variaveis, laços e etc.. como em um codigo normal de JS porem, vamos
+utilizar a palavra 'export{}' para mandar esse codigo pro node, ou seja tudo que esta dentro desse arquivo que criamos sera enviado pra fora
+como se fosse um 'return' em uma função, e no outro codigo onde queremos receber o modulo criado nos pegamos assim import {} from 'modulo1'
+porem tem muitos jeitos de importa e exportar modulos 
+
+   Anotação: Podemos importar as coisas ja colocando um (alias: apelido) ou seja podemos renomear ja na importação, isso é util em casos
+onde a conflito de ja existir nomes iguais no aquivo que esta importando. 
+   ex: import {nome as nome2} // isso ja renomea nome para nome2 e tambem para export podemos utilizar as
+   ex: export {sobrenome as segundoNome}
+
+
+Podemos tambem exportar direto apenas colocando a palavra export antes da declaração js ou seja criamos ja exportando
+EX: export class Pessoa{
+    constructor(nome, sobrenome, idade){
+        this.nome = nome
+        this.sobrenome = sobrenome
+        this.idade = idade
+    }
+}
+
+
+Podemos tambem deixa uma declaração js como padrão (default) ou seja vamos pode importar ela com qualquer nome porque ela é o padrão
+Ex: export default class Produto{
+    constructor(nome, modelo, preco){
+        this.nome = nome
+        this.modelo = modelo
+        this.preco = preco
+    }
+}    
+
+import Eletronicokkkk from "./modulo2"
+
+ O 'kkkk' é pra lembra que o nome não importa quando ela é uma default 
+OBS: SO PODE HAVER UMA DECLARAÇÃO DEFAULT POR MODULO.
+Obs: Podemos tambem export como default exemplo export{ nome as default, sobrenome, ....} ou seja nome sera padrão de exportação
+OBS; SEMPRE QUE FOR IMPORTAR O DEFAULT É SEM AS ASPAS NO NOME ANTES DE FROM IGUAL NO EXEMPLO
+
+Podemos tambem importar tudo que esta sendo exportado de um modulo de uma vez um, utilizando o import * as nomeModulo from "./modulo"
+
+
+
+   
