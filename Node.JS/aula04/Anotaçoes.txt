@@ -1,0 +1,23 @@
+const fs = require ('fs').promises
+const path = require ('path')
+const caminhoARQ = path.resolve(__dirname, '..',  'test.json') // Aqui o mudulo path do node, esta simplemente criando 
+                                                               //um arquivo de texto, para resolver o caminho solicitado
+
+fs.writeFile(caminhoARQ, 'Frase Test dois\n ', {flag: 'w'}); // Aqui a flag: 'w' siginifica que a cada requisição do 
+                                                           // arquivo ele é sobreescrito, porem se mandar 'a' ele vai fazer um append, 
+                                                           //vai ir adicionando a um novo texto a cada a cada requisição 
+                                                           // "\n" é uma RegExp que serve para quebrar linha 
+
+// Agora vamos manda no lugar de um string vamos mandar um arquivo JSON
+
+const mugiwaras = [
+    {nome:'Luffy'},
+    {nome:'Nami'},
+    {nome:'Zoro'},
+    {nome:'Sanji'},
+]
+
+const json = JSON.stringify(mugiwaras, '', 2); // Aqui com metodo JSON.stringify estamos convertendo o array de objetos em um arquivo json
+
+fs.writeFile(caminhoARQ, json, {flag: 'a'}); // E aqui estamos utilizando filesSystem do node para acessa esse arquivo que vai ser criado com path
+ 
