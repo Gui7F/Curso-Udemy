@@ -1,0 +1,22 @@
+devDependencies: Serve para identificar quais dependencias faz parte do aplicação no deploy, ou seja se esta em devDependencies não vai pro servidor como no caso do Webpack
+dependencias: São os pacotes que fazem parte da aplicação no caso do react por exemplo é um pacote que ficaria em dependencias porque deve ir pro servidor pra app funcionar
+
+Obs: cd nome da pasta: serve para voce selecionar a pasta no terminal 
+
+
+npm instal nome do pacote --save-dev: Serve para salvar pacotes na devDependencies
+npm instal nome do pacote: Salva direto na dependencias da aplicação
+npm instal nome do pacote --save-prod: Move das devDependencies para dependencias
+npm instal nome do pacote -E: Salva o pacote e desativa atualizações futuras
+npm instal nome do pacote@2.0.1: Salva na versão expecifica que voce colocar depois do @
+npm update: Serve para atualizar para ultima versão 
+npm uninstal nome do pacote: serve para desinstalar o pacote 
+npm ls: serve para ve a lista de pacotes 
+npm ls --depth = 0 : para listar com profundidade de n pastas do pacote "= 0" significa a profundidade das pastas
+npm outdated: para ver quais pacotes esta desatualizados 
+
+Sobre atualizações: ^4.      18.   2       O major é a versão do pacote, minor é a versão dos recursos, patch é a correção de bugs
+                     major  minor  patch
+Quando a versão tem o chapeu ^4.18.2 significa que atualizações atomaticas do minor e do patch estão ativas quando tem ~4.18.2 significa que att automatica do patch esta ativa
+
+                
